@@ -265,6 +265,7 @@ source "package/python-pygame/Config.in"
 source "package/python-serial/Config.in"
 source "package/python-setuptools/Config.in"
 source "package/python-cython/Config.in"
+source "package/python-efl/Config.in"
 endmenu
 endif
 source "package/ruby/Config.in"

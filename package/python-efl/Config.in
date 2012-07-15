@@ -1,0 +1,10 @@
+menuconfig BR2_PACKAGE_EFLPYTHON
+	bool "Python bindings for the EFL"
+	depends on BR2_PACKAGE_PYTHON
+	select BR2_PACKAGE_EFL
+	help
+	  Allow to use the EFL with Python.
+
+if BR2_PACKAGE_EFLPYTHON
+	source "package/python-efl/python-evas/Config.in"
+endif
