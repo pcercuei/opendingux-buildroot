@@ -5,7 +5,7 @@
 #############################################################
 
 PYTHON_CYTHON_VERSION = 0.16
-PYTHON_CYTHON_SOURCE = Cython-$(CYTHON_VERSION).tar.gz
+PYTHON_CYTHON_SOURCE = Cython-$(PYTHON_CYTHON_VERSION).tar.gz
 PYTHON_CYTHON_SITE = http://cython.org/release
 PYTHON_CYTHON_HOST_DEPENDENCIES = host-python
 
