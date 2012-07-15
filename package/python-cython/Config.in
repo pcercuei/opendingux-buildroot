@@ -1,0 +1,11 @@
+config BR2_PACKAGE_PYTHON_CYTHON
+	bool "cython"
+	depends on BR2_PACKAGE_PYTHON
+	help
+	  C extensions for Python
+
+	  Cython is a language that makes writing C extensions for the Python
+	  language as easy as Python itself. It is based on the well-known
+	  Pyrex, but supports more cutting edge functionality and optimizations.
+
+	  http://cython.org
