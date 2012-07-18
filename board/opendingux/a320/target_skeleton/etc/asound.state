@@ -9,7 +9,7 @@ state.A320 {
 		comment.dbmax 0
 		iface MIXER
 		name SoftMaster
-		value.0 0
-		value.1 0
+		value.0 150
+		value.1 150
 	}
 }
