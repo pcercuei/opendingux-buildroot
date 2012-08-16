@@ -10,5 +10,6 @@ PYTHON_EVAS_SITE = http://svn.enlightenment.org/svn/e/trunk/BINDINGS/python/pyth
 PYTHON_EVAS_DEPENDENCIES = python libevas host-python-cython
 PYTHON_EVAS_AUTORECONF = YES
 PYTHON_EVAS_CONF_ENV = PYTHON_INCLUDES="$(STAGING_DIR)/usr/include/python$(PYTHON_VERSION_MAJOR)"
+PYTHON_EVAS_INSTALL_STAGING = YES
 
 $(eval $(call AUTOTARGETS))
