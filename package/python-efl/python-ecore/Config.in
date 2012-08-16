@@ -1,0 +1,8 @@
+config BR2_PACKAGE_PYTHON_ECORE
+	bool "python-ecore"
+	depends on BR2_PACKAGE_PYTHON
+	select BR2_PACKAGE_LIBECORE
+	select BR2_PACKAGE_PYTHON_CYTHON
+	help
+	  Enable the Python bindings for Ecore.
+

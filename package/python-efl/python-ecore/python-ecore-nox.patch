@@ -1,0 +1,44 @@
+diff --git a/ecore/evas/ecore.evas.c_ecore_evas.pyx b/ecore/evas/ecore.evas.c_ecore_evas.pyx
+index 93bccba..cd79b43 100644
+--- a/ecore/evas/ecore.evas.c_ecore_evas.pyx
++++ b/ecore/evas/ecore.evas.c_ecore_evas.pyx
+@@ -190,10 +190,10 @@ def new(engine_name=None, int x=0, int y=0, int w=320, int h=240, extra_options=
+ 
+ 
+ include "ecore.evas.c_ecore_evas_base.pxi"
+-include "ecore.evas.c_ecore_evas_base_x11.pxi"
+-include "ecore.evas.c_ecore_evas_software_x11.pxi"
+-include "ecore.evas.c_ecore_evas_gl_x11.pxi"
+-include "ecore.evas.c_ecore_evas_xrender_x11.pxi"
++#include "ecore.evas.c_ecore_evas_base_x11.pxi"
++#include "ecore.evas.c_ecore_evas_software_x11.pxi"
++#include "ecore.evas.c_ecore_evas_gl_x11.pxi"
++#include "ecore.evas.c_ecore_evas_xrender_x11.pxi"
+ include "ecore.evas.c_ecore_evas_fb.pxi"
+ include "ecore.evas.c_ecore_evas_buffer.pxi"
+-include "ecore.evas.c_ecore_evas_software_x11_16.pxi"
++#include "ecore.evas.c_ecore_evas_software_x11_16.pxi"
+diff --git a/include/ecore/evas/c_ecore_evas.pxd b/include/ecore/evas/c_ecore_evas.pxd
+index c82ea68..1d41c57 100644
+--- a/include/ecore/evas/c_ecore_evas.pxd
++++ b/include/ecore/evas/c_ecore_evas.pxd
+@@ -212,13 +212,13 @@ cdef extern from "Ecore_Evas.h":
+     int  ecore_evas_manual_render_get(Ecore_Evas *ee)
+     void ecore_evas_manual_render(Ecore_Evas *ee)
+ 
+-cdef extern from "Ecore_X.h":
+-    ctypedef unsigned int Ecore_X_Cursor
+-    ctypedef unsigned int Ecore_X_Virtual_Keyboard_State
++#cdef extern from "Ecore_X.h":
++#    ctypedef unsigned int Ecore_X_Cursor
++#    ctypedef unsigned int Ecore_X_Virtual_Keyboard_State
+ 
+-    cdef void ecore_x_window_cursor_set(Ecore_X_Window win, Ecore_X_Cursor c)
+-    Ecore_X_Cursor ecore_x_cursor_shape_get(int shape)
+-    cdef void ecore_x_e_virtual_keyboard_state_set(Ecore_X_Window win, Ecore_X_Virtual_Keyboard_State state)
++#    cdef void ecore_x_window_cursor_set(Ecore_X_Window win, Ecore_X_Cursor c)
++#    Ecore_X_Cursor ecore_x_cursor_shape_get(int shape)
++#    cdef void ecore_x_e_virtual_keyboard_state_set(Ecore_X_Window win, Ecore_X_Virtual_Keyboard_State state)
+ 
+ 
+ cdef class EcoreEvas:
