@@ -12,13 +12,31 @@ LIBEDJE_INSTALL_STAGING = YES
 LIBEDJE_DEPENDENCIES = host-pkg-config lua libeina libeet libecore libevas \
 			libembryo
 
-ifeq ($(BR2_PACKAGE_LIBEDJE_CC),y)
-LIBEDJE_CONF_OPT += --enable-edje-cc
-else
-LIBEDJE_CONF_OPT += --disable-edje-cc
-endif
+HOST_LIBEDJE_CONF_OPT += --enable-edje-cc \
+					--enable-edje-decc \
+					--enable-edje-recc \
+					--enable-ejde-player \
+					--enable-ejde-inspector \
+					--enable-edje-external-inspector \
+					--enable-edje-watch
 
-HOST_LIBEDJE_CONF_OPT = --enable-edje-cc
+ifeq ($(BR2_PACKAGE_LIBEDJE_TOOLS),y)
+LIBEDJE_CONF_OPT += --enable-edje-cc \
+					--enable-edje-decc \
+					--enable-edje-recc \
+					--enable-ejde-player \
+					--enable-ejde-inspector \
+					--enable-edje-external-inspector \
+					--enable-edje-watch
+else
+LIBEDJE_CONF_OPT += --disable-edje-cc \
+					--disable-edje-decc \
+					--disable-edje-recc \
+					--disable-edje-player \
+					--disable-edje-inspector \
+					--disable-edje-external-inspector \
+					--disable-edje-watch
+endif
 
 $(eval $(call AUTOTARGETS))
 $(eval $(call AUTOTARGETS,host))

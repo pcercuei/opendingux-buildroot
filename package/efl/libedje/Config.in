@@ -13,9 +13,11 @@ config BR2_PACKAGE_LIBEDJE
 
 	  http://trac.enlightenment.org/e/wiki/Edje
 
-config BR2_PACKAGE_LIBEDJE_CC
-	bool "build edje_cc"
+config BR2_PACKAGE_LIBEDJE_TOOLS
+	bool "build Edje tools"
 	depends on BR2_PACKAGE_LIBEDJE
 	help
-	  Build and install the Edje compiler for the target. Normally this
-	  is not required.
+	  Build and install the Edje tools for the target:
+	  edje-cc, edje-decc, edje-recc, edje-player,
+	  edje-inspector
+	  Normally this is not required.
