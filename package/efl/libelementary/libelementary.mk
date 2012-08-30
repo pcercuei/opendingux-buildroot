@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-LIBELEMENTARY_VERSION = 1.0.1
+LIBELEMENTARY_VERSION = 1.7.0-alpha
 LIBELEMENTARY_SOURCE = elementary-$(LIBELEMENTARY_VERSION).tar.bz2
 LIBELEMENTARY_SITE = http://download.enlightenment.org/releases/
 LIBELEMENTARY_INSTALL_STAGING = YES
