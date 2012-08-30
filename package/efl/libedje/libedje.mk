@@ -12,6 +12,10 @@ LIBEDJE_INSTALL_STAGING = YES
 LIBEDJE_DEPENDENCIES = host-pkg-config lua libeina libeet libecore libevas \
 			libembryo
 
+ifeq ($(BR2_PREFER_SOFT_FLOAT),y)
+LIBEDJE_CONF_OPT += --enable-fixed-point
+endif
+
 HOST_LIBEDJE_CONF_OPT += --enable-edje-cc \
 					--enable-edje-decc \
 					--enable-edje-recc \
