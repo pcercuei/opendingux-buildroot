@@ -8,4 +8,5 @@ menuconfig BR2_PACKAGE_EFLPYTHON
 if BR2_PACKAGE_EFLPYTHON
 	source "package/python-efl/python-evas/Config.in"
 	source "package/python-efl/python-ecore/Config.in"
+	source "package/python-efl/python-edje/Config.in"
 endif
