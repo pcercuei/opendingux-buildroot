@@ -1,0 +1,79 @@
+diff --git a/elementary/elementary.c_elementary_window.pxi b/elementary/elementary.c_elementary_window.pxi
+index caf7dd0..924a520 100644
+--- a/elementary/elementary.c_elementary_window.pxi
++++ b/elementary/elementary.c_elementary_window.pxi
+@@ -1572,51 +1572,6 @@ cdef public class Window(Object) [object PyElementaryWindow, type PyElementaryWi
+         """
+         return bool(elm_win_socket_listen(self.obj, _cfruni(svcname), svcnum, svcsys))
+ 
+-    def xwindow_xid_get(self):
+-        """Returns the X Window id.
+-
+-        X Window id is a value of type long int which can be used in combination
+-        with some functions/objects in the ecore.x module.
+-
+-        For example you can hide the mouse cursor with:
+-        import ecore.x
+-        xid = your_elm_win.xwindow_xid_get()
+-        xwin = ecore.x.Window_from_xid(xid)
+-        xwin.cursor_hide()
+-
+-        @note: This is not portable at all. Works only under the X window system.
+-
+-        @return: The X Window id.
+-        @rtype: long
+-
+-        """
+-        cdef Ecore_X_Window xwin
+-        xwin = elm_win_xwindow_get(self.obj)
+-        return xwin
+-
+-    property xwindow_xid:
+-        """Returns the X Window id.
+-
+-        X Window id is a value of type long int which can be used in
+-        combination with some functions/objects in the ecore.x module.
+-
+-        For example you can hide the mouse cursor with:
+-        import ecore.x
+-        xid = your_elm_win.xwindow_xid_get()
+-        xwin = ecore.x.Window_from_xid(xid)
+-        xwin.cursor_hide()
+-
+-        @note: This is not portable at all. Works only under the X window
+-            system.
+-
+-        @type: long
+-
+-        """
+-        def __get__(self):
+-            cdef Ecore_X_Window xwin
+-            xwin = elm_win_xwindow_get(self.obj)
+-            return xwin
+-
+     def callback_delete_request_add(self, func, *args, **kwargs):
+         """The user requested to close the window. See L{autodel_set()}."""
+         self._callback_add("delete,request", func, *args, **kwargs)
+diff --git a/include/elementary/c_elementary.pxd b/include/elementary/c_elementary.pxd
+index 1fa8021..5bb649e 100644
+--- a/include/elementary/c_elementary.pxd
++++ b/include/elementary/c_elementary.pxd
+@@ -55,9 +55,9 @@ cdef extern from "time.h":
+ cdef extern from "Ecore.h":
+     ctypedef void (*Ecore_Cb)(void *data)
+ 
+-cdef extern from "Ecore_X.h":
+-    ctypedef unsigned int Ecore_X_ID
+-    ctypedef Ecore_X_ID Ecore_X_Window
++#cdef extern from "Ecore_X.h":
++#    ctypedef unsigned int Ecore_X_ID
++#    ctypedef Ecore_X_ID Ecore_X_Window
+ 
+ cdef extern from "Evas.h":
+     ctypedef void *Evas_Object_Box_Data
+@@ -2348,4 +2348,4 @@ cdef extern from "Elementary.h":
+     Eina_Bool                elm_win_socket_listen(Evas_Object *obj, const_char_ptr svcname, int svcnum, Eina_Bool svcsys)
+ 
+     # X specific call - wont't work on non-x engines (return 0)
+-    Ecore_X_Window           elm_win_xwindow_get(Evas_Object *obj)
++#    Ecore_X_Window           elm_win_xwindow_get(Evas_Object *obj)

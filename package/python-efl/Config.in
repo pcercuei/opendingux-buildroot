@@ -9,4 +9,5 @@ if BR2_PACKAGE_EFLPYTHON
 	source "package/python-efl/python-evas/Config.in"
 	source "package/python-efl/python-ecore/Config.in"
 	source "package/python-efl/python-edje/Config.in"
+	source "package/python-efl/python-elementary/Config.in"
 endif
